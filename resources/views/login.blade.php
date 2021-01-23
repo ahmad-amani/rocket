@@ -1,14 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layout.mainLayout')
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-        <link rel="stylesheet" href="css/app.css">
-        <script src="js/app.js"></script>
-    </head>
-
+@section("body")
     <body>
         <div class="container">
 
@@ -23,7 +15,7 @@
                 <div id="hidden-success-message" class="col-12 alert-success hidden-div">
                     ورود موفق! در حال انتقال
                     <a id="div-timer" class="timer">
-                       5
+                        5
                     </a>
                 </div>
                 <div id="hidden-error-message" class="col-12 alert-danger hidden-div">
@@ -47,5 +39,4 @@
             </div>
         </div>
     </body>
-    <script src="/js/myJs.js"></script>
-</html>
+@endsection

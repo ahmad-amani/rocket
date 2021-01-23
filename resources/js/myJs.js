@@ -1,5 +1,5 @@
-
 $(document).ready(function () {
+
     $("#submitBtn").click(function (e) {
         e.preventDefault();
         var token = $("#csrfToken").val();
@@ -35,4 +35,11 @@ $(document).ready(function () {
             }
         });
     })
+
+    $('#mobile').click(function () {
+        $('.mobile_menu_list').toggleClass("show");
+    });
+
 })
+
+

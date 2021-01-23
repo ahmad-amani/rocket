@@ -1,15 +1,6 @@
-<!DOCTYPE html>
-<html lang="fa-IR" dir="rtl">
+@extends("layout.mainLayout")
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1"/>
-        <title>rocket</title>
-        <link rel="stylesheet" href="css/app.css">
-        <script src="js/app.js"></script>
-    </head>
-
-
+@section("body")
     <body class="justify-content-center">
         <div class="mobile_menu_list container-fluid justify-content-between text-right">
             <!-- modal -->
@@ -618,15 +609,4 @@
         <br>
         <!--  end of third part     -->
     </body>
-
-</html>
-
-
-<script>
-    $(document).ready(function () {
-        $('#mobile').click(function () {
-            $('.mobile_menu_list').toggleClass("show");
-        });
-    });
-
-</script>
+@endsection
