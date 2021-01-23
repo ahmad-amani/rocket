@@ -620,7 +620,8 @@
     </body>
 
 </html>
-<?php $csrf=(csrf_token()); ?>
+
+
 <script>
     $(document).ready(function () {
         $('#mobile').click(function () {
