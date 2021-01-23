@@ -626,8 +626,6 @@
         $('#mobile').click(function () {
             $('.mobile_menu_list').toggleClass("show");
         });
-
-        alert('{{$csrf}}');
     });
 
 </script>
