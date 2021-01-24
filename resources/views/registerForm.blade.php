@@ -21,7 +21,7 @@
                                 @if($errors->has("name"))
                                     <span class="error-span" style="color: red;">
                                         <ul>
-                                            @foreach($errors->get("email") as $error)
+                                            @foreach($errors->get("name") as $error)
                                                 <li>{{$error}}</li>
                                             @endforeach
                                         </ul>
