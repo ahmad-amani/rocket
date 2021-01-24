@@ -86,23 +86,40 @@ a:visited {
         display: none;
     }
 }
-
+.dontShowUnder575{
+    display: none;
+}
+.dontShowUpper575{
+ display: flex;
+}
 @media only screen and (min-width: 475px) {
     .dontShowUnder370 {
         display: flex;
     }
+
 }
 
-@media only screen and (min-width: 575px) {
+@media only screen and (min-width: 577px) {
     .btn-answer-count {
         display: block;
     }
     .text-align-center {
         text-align: left;
     }
+    .dontShowUnder575 {
+        display: flex;
+    }
+    .dontShowUpper575{
+        display: none;
+    }
 }
-
+.dontShowUnder1100{
+    display: none;
+}
 @media only screen and (min-width: 780px) {
+    .dontShowUnder780{
+        display: block;
+    }
     .mobile_menu {
         display: flex;
     }
@@ -161,11 +178,15 @@ a:visited {
     .second_navbar_response {
         display: flex;
     }
+
 }
 
 @media only screen and (min-width: 1100px) {
     .mobile_menu {
         display: none;
+    }
+    .fixed-over-1100{
+     position: fixed;
     }
 
     .mobile_menu_list,
@@ -194,7 +215,8 @@ a:visited {
     }
 }
 
-.arrow-up {
+
+    .arrow-up {
     width: 0;
     height: 0;
     border-left: 7px solid transparent;
@@ -411,7 +433,7 @@ a:visited {
     position: absolute;
     top: 0;
     left: 0;
-    height: 200%;
+    height: 100%;
     background-size: 600px;
 
     opacity: 0.09;
@@ -10542,23 +10564,40 @@ a:visited {
         display: none;
     }
 }
-
+.dontShowUnder575{
+    display: none;
+}
+.dontShowUpper575{
+ display: flex;
+}
 @media only screen and (min-width: 475px) {
     .dontShowUnder370 {
         display: flex;
     }
+
 }
 
-@media only screen and (min-width: 575px) {
+@media only screen and (min-width: 577px) {
     .btn-answer-count {
         display: block;
     }
     .text-align-center {
         text-align: left;
     }
+    .dontShowUnder575 {
+        display: flex;
+    }
+    .dontShowUpper575{
+        display: none;
+    }
 }
-
+.dontShowUnder1100{
+    display: none;
+}
 @media only screen and (min-width: 780px) {
+    .dontShowUnder780{
+        display: block;
+    }
     .mobile_menu {
         display: flex;
     }
@@ -10617,11 +10656,15 @@ a:visited {
     .second_navbar_response {
         display: flex;
     }
+
 }
 
 @media only screen and (min-width: 1100px) {
     .mobile_menu {
         display: none;
+    }
+    .fixed-over-1100{
+     position: fixed;
     }
 
     .mobile_menu_list,
@@ -10650,7 +10693,8 @@ a:visited {
     }
 }
 
-.arrow-up {
+
+    .arrow-up {
     width: 0;
     height: 0;
     border-left: 7px solid transparent;
@@ -10867,7 +10911,7 @@ a:visited {
     position: absolute;
     top: 0;
     left: 0;
-    height: 200%;
+    height: 100%;
     background-size: 600px;
 
     opacity: 0.09;

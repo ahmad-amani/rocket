@@ -21,7 +21,9 @@ class AuthController extends Controller
         Validator::validate($request->all(), [
             'name' => 'required|min:3',
             'email' => 'required|email|unique:users',
-            'password' => 'required|min:8|max:20'
+            'password' => 'required|min:6|max:20|required_with:repeatPassword|same:repeatPassword',
+            'repeatPassword' => 'required|min:6|max:20',
+            "terms"=>"required"
         ]);
 
         $user = new User();

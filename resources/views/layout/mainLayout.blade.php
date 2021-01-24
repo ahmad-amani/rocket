@@ -7,8 +7,10 @@
         <title>rocket</title>
         <link rel="stylesheet" href="css/app.css">
         <script src="js/app.js"></script>
+        @yield("head")
     </head>
     @yield('body')
 
     <script src="/js/myJs.js"></script>
+    @yield("foot")
 </html>
