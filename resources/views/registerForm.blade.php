@@ -1,23 +1,22 @@
 @extends('layout.rocketLayout')
 @section("head")
-    <link rel="stylesheet" href="css/register.css">
+    <link rel="stylesheet" href="{{asset("css/auth.css")}}">
 @endsection
 
 @section("banner")
-    <style>
-        /*.hidden-div*/
-    </style>
     <div class="row align-content-center justify-content-center" style="height: 100%;max-width: 1500px;max-height: 900px;top:20%;margin: 0 auto">
-        <div class="col-12 col-sm-8">
+        <div class="col-11 col-sm-8">
             <div class="row" style="height: 100%;direction: ltr;">
                 {{--form container --}}
                 <div class="col-12 form-container remove-padding-under-450" style="background:linear-gradient(135deg, #e1e6e5 20%, #c7ced3 80%);box-shadow: 1px 11px 20px 14px #26618a;padding-top: 10%;background-color: white">
+                    <div class="dontShowUpper575 text-center form-title"><span style="">REGISTERTION</span></div>
+
                     <form action="/register" method="post">
                         @csrf
-                        <div class="form-field-wrapper">
+                        <div class="col-12 form-field-wrapper">
                             <fieldset class="field-sets">
                                 <legend class="legends">NAME</legend>
-                                <input class="input-field"     @if($errors->has("name")) style="border-color: red" @endif type="text" name="name">
+                                <input class="input-field"     @if($errors->has("name")) style="border-color: red" @endif type="text" name="name" value="{{old("name")}}">
                                 @if($errors->has("name"))
                                     <span class="error-span" style="color: red;">
                                         <ul>
@@ -31,10 +30,10 @@
                             </fieldset>
                         </div>
 
-                        <div class="form-field-wrapper">
+                        <div class="col-12 form-field-wrapper">
                             <fieldset class="field-sets">
                                 <legend class="legends">E-MAIL</legend>
-                                <input class="input-field"  @if($errors->has("email")) style="border-color: red" @endif type="text" name="email">
+                                <input class="input-field"  @if($errors->has("email")) style="border-color: red" @endif type="text" name="email" value="{{old("email")}}">
                                 @if($errors->has("email"))
                                     <span class="error-span" style="color: red;">
                                         <ul>
@@ -49,10 +48,10 @@
                         </div>
 
 
-                        <div class="form-field-wrapper">
+                        <div class="col-12 form-field-wrapper">
                             <fieldset class="field-sets">
                                 <legend class="legends">PASSWORD</legend>
-                                <input class="input-field pass" id="pass1"  @if($errors->has("password")) style="border-color: red" @endif type="text" name="password">
+                                <input class="input-field pass" id="pass1"  @if($errors->has("password")) style="border-color: red" @endif type="password" name="password">
                                 @if($errors->has("password"))
                                     <span class="error-span" style="color: red;">
                                         <ul>
@@ -67,10 +66,10 @@
                         </div>
 
 
-                        <div class="form-field-wrapper">
+                        <div class="col-12 form-field-wrapper">
                             <fieldset class="field-sets">
                                 <legend class="legends">REPEAT PASSWORD</legend>
-                                <input class="input-field pass" id="pass2"  @if($errors->has("repeatPassword")) style="border-color: red" @endif type="text" name="repeatPassword">
+                                <input class="input-field pass" id="pass2"  @if($errors->has("repeatPassword")) style="border-color: red" @endif type="password" name="repeatPassword">
                                 @if($errors->has("repeatPassword"))
                                     <span class="error-span" style="color: red;">
                                         <ul>
@@ -85,7 +84,7 @@
                         </div>
                         <br>
                         <div style="padding-left: 20px" id="term-div">
-                            <input type="checkbox" style="outline-color: red" name="terms" id="terms">
+                            <input type="checkbox" name="terms" id="terms">
                             by sing up you agree with
                             <span style="color: green">terms and condition</span>
                             @if($errors->has("terms"))
@@ -99,7 +98,7 @@
                                 <div style="min-height: 5px"></div>
                             @endif
                         </div>
-                        <div style="padding: 20px">
+                        <div style="padding: 20px" id="links">
                             <button class="btn btn-success" id="btn-sign-up">Sign Up</button> &nbsp; Or
                             <a href="/login" style="color: #4dc0b5;font-size: larger">login</a>
                         </div>

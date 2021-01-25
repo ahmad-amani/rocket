@@ -15,4 +15,14 @@ class Course extends Model
     {
         return $this->attributes["short-text"];
     }
+    public function setShortTextAttribute($value)
+    {
+        $this->attributes["short-text"]=$value;
+        return $this;
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class,"userid","id");
+    }
 }

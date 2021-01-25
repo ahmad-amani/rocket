@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
@@ -18,13 +19,20 @@ class AuthController extends Controller
 
     public function register(Request $request)
     {
-        Validator::validate($request->all(), [
+
+        $validator = Validator::make($request->all(), [
             'name' => 'required|min:3',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:6|max:20|required_with:repeatPassword|same:repeatPassword',
             'repeatPassword' => 'required|min:6|max:20',
             "terms"=>"required"
         ]);
+
+        if ($validator->fails()) {
+            return redirect('/register')
+                ->withErrors($validator)
+                ->withInput();
+        }
 
         $user = new User();
         $user->name = $request->name;
@@ -52,14 +60,14 @@ class AuthController extends Controller
                 return view("login")->with(["error" => "something went wrong"]);
             }
         }
-//
-//        if ($res == 1)
-//        {
-//            return Redirect::intended("home");
-//        } else
-//        {
-//            return view("login")->with(["error" => "something went wrong"]);
-//        }
+
+        if ($res == 1)
+        {
+            return Redirect::intended("home")->withInput();
+        } else
+        {
+            return view("login")->with(["error" => "something went wrong"]);
+        }
     }
 
     public function logout()

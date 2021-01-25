@@ -63,6 +63,9 @@ a:visited {
     .desktop_menu {
         display: none;
     }
+    .desktop_menu_block {
+        display: none;
+    }
 
     .search_form {
         display: none;
@@ -94,10 +97,19 @@ a:visited {
     .dontShowUnder370 {
         display: flex;
     }
+    .form-field-wrapper{
+        margin-top: 30px;
+    }
 
 }
-
+.dontShowUnder575Block{
+    display: none;
+}
+.dontShowUpper575Block{
+    display: block;
+}
 @media only screen and (min-width: 577px) {
+
     .btn-answer-count {
         display: block;
     }
@@ -106,6 +118,12 @@ a:visited {
     }
     .dontShowUnder575 {
         display: flex;
+    }
+    .dontShowUnder575Block{
+        display: block;
+    }
+    .dontShowUpper575Block{
+        display: none;
     }
     .dontShowUpper575{
         display: none;
@@ -163,6 +181,9 @@ a:visited {
 
     .desktop_menu {
         display: flex;
+    }
+    .desktop_menu_block {
+        display: block;
     }
 
     .search_form {

@@ -22,10 +22,25 @@ Route::get('/', function () {
 });
 
 
+
+
+//courses
+Route::group(["namespace"=>"\App\Http\Controllers","middleware"=>"auth"],function (){
+    Route::view("createCourse", ["uses" => "createCourse", "as" => "createCourse"]);
+    Route::get("listCourses", "CourseController@all");
+    Route::post("createCourse", "CourseController@store");
+    Route::put("updateCourse/{course}","CourseController@update");
+    Route::delete("deleteCourse/{course}", "CourseController@delete");
+    Route::get("editCourse/{course}", "CourseController@edit");
+
+});
+
+
+//auth
 Route::group(["namespace" => "\App\Http\Controllers"], function () {
     Route::view("register", "registerForm")->middleware("guest");
     Route::post('register', "AuthController@register");
-    Route::view('login', 'login')->middleware("guest");
+    Route::view('login', ["uses" => 'login', "as" => "login"])->middleware("guest");
     Route::post('login', "AuthController@login");
     Route::post("logout", "AuthController@logout");
 });

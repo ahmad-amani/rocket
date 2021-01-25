@@ -1,17 +1,21 @@
 @extends('layout.rocketLayout')
 @section("head")
-    <link rel="stylesheet" href="css/register.css">
+    <link rel="stylesheet" href="{{asset("css/auth.css")}}">
 @endsection
 
 @section("banner")
-    <style>
-        /*.hidden-div*/
-    </style>
+
     <div class="row align-content-center justify-content-center" style="height: 100%;max-width: 1500px;max-height: 900px;top:20%;margin: 0 auto">
-        <div class="col-12 col-sm-8">
-            <div class="row" style="height: 100%;direction: ltr;">
+        <div class="col-11 col-sm-8">
+
+            <div class="row justify-content-center" style="height: 100%;direction: ltr;">
                 {{--form container --}}
+
                 <div class="col-12 form-container remove-padding-under-450" style="background:linear-gradient(135deg, #e1e6e5 20%, #c7ced3 80%);box-shadow: 1px 11px 20px 14px #26618a;padding-top: 10%;background-color: white">
+                <div class="dontShowUpper575 text-center form-title"><span style="">LOGIN</span></div>
+                    @isset($error)
+                        <div class="alert alert-danger">{{$error}}</div>
+                    @endisset
                     <form action="/login" method="post">
                         @csrf
                         <div class="form-field-wrapper">
@@ -33,26 +37,8 @@
 
                         <div class="form-field-wrapper">
                             <fieldset class="field-sets">
-                                <legend class="legends">E-MAIL</legend>
-                                <input class="input-field"  @if($errors->has("email")) style="border-color: red" @endif type="text" name="email">
-                                @if($errors->has("email"))
-                                    <span class="error-span" style="color: red;">
-                                        <ul>
-                                            @foreach($errors->get("email") as $error)
-                                                <li>{{$error}}</li>
-                                            @endforeach
-                                        </ul>
-                                    </span>
-                                    <div style="min-height: 5px"></div>
-                                @endif
-                            </fieldset>
-                        </div>
-
-
-                        <div class="form-field-wrapper">
-                            <fieldset class="field-sets">
                                 <legend class="legends">PASSWORD</legend>
-                                <input class="input-field pass" id="pass1"  @if($errors->has("password")) style="border-color: red" @endif type="text" name="password">
+                                <input class="input-field pass" id="pass1"  @if($errors->has("password")) style="border-color: red" @endif type="password" name="password">
                                 @if($errors->has("password"))
                                     <span class="error-span" style="color: red;">
                                         <ul>
@@ -66,42 +52,9 @@
                             </fieldset>
                         </div>
 
-
-                        <div class="form-field-wrapper">
-                            <fieldset class="field-sets">
-                                <legend class="legends">REPEAT PASSWORD</legend>
-                                <input class="input-field pass" id="pass2"  @if($errors->has("repeatPassword")) style="border-color: red" @endif type="text" name="repeatPassword">
-                                @if($errors->has("repeatPassword"))
-                                    <span class="error-span" style="color: red;">
-                                        <ul>
-                                            @foreach($errors->get("repeatPassword") as $error)
-                                                <li>{{$error}}</li>
-                                            @endforeach
-                                        </ul>
-                                    </span>
-                                    <div style="min-height: 5px"></div>
-                                @endif
-                            </fieldset>
-                        </div>
-                        <br>
-                        <div style="padding-left: 20px" id="term-div">
-                            <input type="checkbox" style="outline-color: red" name="terms" id="terms">
-                            by sing up you agree with
-                            <span style="color: green">terms and condition</span>
-                            @if($errors->has("terms"))
-                                <span class="error-span" style="color: red;">
-                                    <ul>
-                                        @foreach($errors->get("terms") as $error)
-                                            <li>{{$error}}</li>
-                                        @endforeach
-                                    </ul>
-                                </span>
-                                <div style="min-height: 5px"></div>
-                            @endif
-                        </div>
-                        <div style="padding: 20px">
-                            <button class="btn btn-success" id="btn-sign-up">Sign Up</button> &nbsp; Or
-                            <a href="/login" style="color: #4dc0b5;font-size: larger">login</a>
+                        <div class="col-12" style="padding: 20px 0px" id="links">
+                            <button class="btn btn-block btn-success" id="btn-sign-up">Login</button> &nbsp; Or
+                            <a href="/register" style="color: #4dc0b5;font-size: larger">register</a>
                         </div>
 
                     </form>
@@ -154,55 +107,3 @@
 
     </script>
 @endsection
-
-
-
-
-
-
-
-
-
-
-{{--@extends('layout.mainLayout')--}}
-
-{{--@section("body")--}}
-{{--    <body>--}}
-{{--        <div class="container">--}}
-
-{{--            <div class="row justify-content-center">--}}
-{{--                @isset($error)--}}
-{{--                    <div class="col-12 alert-danger">--}}
-{{--                        {{$error}}--}}
-{{--                    </div>--}}
-{{--                @endisset--}}
-{{--                <br>--}}
-
-{{--                <div id="hidden-success-message" class="col-12 alert-success hidden-div">--}}
-{{--                    ورود موفق! در حال انتقال--}}
-{{--                    <a id="div-timer" class="timer">--}}
-{{--                        5--}}
-{{--                    </a>--}}
-{{--                </div>--}}
-{{--                <div id="hidden-error-message" class="col-12 alert-danger hidden-div">--}}
-{{--                    ورود ناموفق!--}}
-{{--                </div>--}}
-
-{{--                <div class="col-6">--}}
-{{--                    <form action="" method="post">--}}
-{{--                        <input type="hidden" id="csrfToken" name="_token" value="{{csrf_token()}}">--}}
-{{--                        login:--}}
-{{--                        <input class="form-control" id="email" type="text" name="email" placeholder="email">--}}
-{{--                        <br>--}}
-{{--                        <input class="form-control" id="password" type="password" name="password" placeholder="password">--}}
-{{--                        <br>--}}
-{{--                        remember?:--}}
-{{--                        <input type="checkbox" name="remember" id="">--}}
-{{--                        <button id="submitBtn" class="btn btn-success form-control">login</button>--}}
-{{--                    </form>--}}
-{{--                    <a class="" style="text-decoration:underline red" href="\register">join us?</a>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </body>--}}
-{{--@endsection--}}
